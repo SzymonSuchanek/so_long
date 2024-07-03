@@ -6,11 +6,11 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:52:41 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/07/01 17:36:12 by ssuchane         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:57:18 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*fix_line(char *line)
 {
@@ -86,9 +86,7 @@ char	*get_next_line(int fd)
 // {
 // 	char	*line;
 // 	int		fd;
-// 	int		i;
 
-// 	i = 0;
 // 	fd = open("file.txt", O_RDONLY);
 // 	if (fd < 0)
 // 	{

@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 16:58:56 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/03/08 16:35:04 by ssuchane         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:16:03 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ char	*ft_strchr(const char *s, int c)
 	unsigned int	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	if (!s)
+		return (NULL);
+	while (s[i])
 	{
 		if (s[i] == (char)c)
 			return ((char *)&s[i]);
@@ -25,7 +27,7 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (c == '\0')
 		return ((char *)&s[i]);
-	return (0);
+	return (NULL);
 }
 
 // int	main(void)

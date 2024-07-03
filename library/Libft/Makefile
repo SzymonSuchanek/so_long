@@ -6,7 +6,7 @@
 #    By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/28 11:57:40 by ssuchane          #+#    #+#              #
-#    Updated: 2024/03/18 19:49:32 by ssuchane         ###   ########.fr        #
+#    Updated: 2024/07/03 16:47:32 by ssuchane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,8 +44,8 @@ SRCS :=	ft_isalpha.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c  \
-		
-SRCB :=	ft_lstnew.c \
+		get_next_line.c	\
+		ft_lstnew.c \
 		ft_lstadd_front.c \
 		ft_lstsize.c \
 		ft_lstlast.c \
@@ -56,8 +56,6 @@ SRCB :=	ft_lstnew.c \
 		ft_lstmap.c \
 
 OBJS := $(SRCS:.c=.o)
-
-OBJSB := $(SRCB:.c=.o)
 
 NAME = libft.a
 
@@ -75,11 +73,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-bonus: $(OBJSB)
-	ar rcs $(NAME) $(OBJSB)
-
 clean:
-	rm -f $(OBJS) $(OBJSB)
+	rm -f $(OBJS) 
 
 fclean: clean
 	rm -f $(NAME)

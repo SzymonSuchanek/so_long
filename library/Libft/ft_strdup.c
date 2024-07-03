@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 16:58:56 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/03/06 23:46:17 by ssuchane         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:18:11 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,20 @@
 
 char	*ft_strdup(const char *s)
 {
-	const char		*ptr;
-	char			*ptr2;
+	char		*ptr;
 	unsigned int	i;
 
-	ptr = s;
-	i = 0;
-	ptr2 = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (!ptr2)
+	ptr = (char *)malloc(ft_strlen(s) + 1);
+	if (!ptr)
 		return (NULL);
-	while (ptr[i] != '\0')
+	i = 0;
+	while (ptr[i])
 	{
-		ptr2[i] = ptr[i];
+		ptr[i] = s[i];
 		i++;
 	}
-	ptr2[i] = '\0';
-	return (ptr2);
+	ptr[i] = '\0';
+	return (ptr);
 }
 
 // int	main(void)

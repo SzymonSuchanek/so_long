@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_uint.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 16:34:31 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/07/03 16:38:38 by ssuchane         ###   ########.fr       */
+/*   Created: 2024/03/21 16:11:21 by ssuchane          #+#    #+#             */
+/*   Updated: 2024/07/03 16:45:26 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "ft_printf.h"
 
-# include "library/Libft/libft.h"
-# include "library/ft_printf/ft_printf.h"
-# include <limits.h>
-
-typedef struct s_map
+int	ft_print_uint(unsigned int nbr)
 {
-	char	**map;
-	int		width;
-	int		height;
-}		t_map;
+	int	len;
 
-#endif
+	len = 0;
+	if (nbr == 0)
+		return (ft_print_char2('0'));
+	if (nbr >= 10)
+	{
+		ft_print_uint(nbr / 10);
+		ft_print_uint(nbr % 10);
+	}
+	else
+	{
+		if (nbr <= 9)
+			ft_putchar(nbr + '0');
+		else
+			ft_putchar(nbr - 10 + 'a');
+	}
+	while (nbr != 0)
+	{
+		len++;
+		nbr = nbr / 10;
+	}
+	return (len);
+}

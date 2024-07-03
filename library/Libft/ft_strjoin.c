@@ -6,26 +6,32 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 16:58:56 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/03/06 22:29:30 by ssuchane         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:18:44 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	char	*str;
-	size_t	len1;
-	size_t	len2;
+	char	*joined;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	str = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 		return (NULL);
-	ft_strlcpy(str, s1, (len1 + 1));
-	ft_strlcat(str, s2, (len1 + len2 + 1));
-	return (str);
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	joined = malloc(s1_len + s2_len + 1);
+	if (!joined)
+		return (NULL);
+	ft_memcpy(joined, s1, s1_len);
+	ft_memcpy(joined + s1_len, s2, s2_len + 1);
+	return (joined);
 }
 
 // int	main(void)

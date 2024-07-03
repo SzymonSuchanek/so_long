@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 18:51:18 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/07/02 15:13:10 by ssuchane         ###   ########.fr       */
+/*   Created: 2024/03/20 18:42:25 by ssuchane          #+#    #+#             */
+/*   Updated: 2024/07/03 16:42:36 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 15
-# endif
-
-# include <stddef.h>
-# include <fcntl.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <stdarg.h>
+# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 
-char	*get_next_line(int fd);
-size_t	ft_strlen(const char *s);
-char	*ft_strdup(const char *s);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+int		ft_printf(const char *placeholders, ...);
+size_t	ft_putstr2(const char *s);
+size_t	ft_strlen2(const char *s);
+void	ft_putchar(int c);
+int		ft_address(unsigned long nbr);
+int		ft_print_char2(char c);
+int		ft_printhex(unsigned int nbr, const char placeholders);
+int		ft_print_uint(unsigned int nbr);
+int		ft_print_int(int nbr);
+int		ft_edge_int(int nbr);
 
 #endif
