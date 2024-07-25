@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:52:41 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/07/03 16:57:18 by ssuchane         ###   ########.fr       */
+/*   Updated: 2024/07/25 12:54:24 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*fill_buffer(int fd, char *buffer, char *stash)
 		if (read_bytes < 0)
 			return (NULL);
 		buffer[read_bytes] = '\0';
-		if (read_bytes == 0) 
+		if (read_bytes == 0)
 			break ;
 		if (stash == NULL)
 			stash = ft_strdup("");
