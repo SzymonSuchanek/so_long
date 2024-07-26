@@ -6,7 +6,7 @@
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:34:31 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/07/25 12:51:06 by ssuchane         ###   ########.fr       */
+/*   Updated: 2024/07/26 19:35:27 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,24 @@
 # include <limits.h>
 # include <stdbool.h>
 
+# define HEADER_SIZE 54
+
 typedef struct s_xpm
 {
 	void	*background;
 	void	*wall;
-	void	*collectible;
+	void	*collectible1;
+	void	*collectible2;
+	void	*collectible3;
+	void	*collectible4;
+	void	*collectible5;
 	void	*player_up;
 	void	*player_down;
 	void	*player_left;
 	void	*player_right;
-	void	*monster;
+	void	*monster1;
+	void	*monster2;
+	void	*monster3;
 	void	*exit;
 	void	*exit_open;
 }			t_xpm;
@@ -43,6 +51,12 @@ typedef struct s_game
 	int		**monster_xy;
 	void	*mlx;
 	void	*window;
+	int		x_off;
+	int		y_off;
+	int		state;
+	char	last_key;
+	int		frame_counter;
+	int		moves;
 	t_xpm	xpm;
 }			t_game;
 
@@ -68,15 +82,22 @@ char		**duplicate_map(char **map);
 
 void		get_position(char **map, int *player_xy, int *exit_xy);
 void		init_textures(t_game *game);
+void		init_monster_textures(t_game *game);
+void		init_collectible_textures(t_game *game);
+void		init_player_textures(t_game *game);
 void		fill_texture(t_game game, void *xpm, int x, int y);
 void		fill_player_texture(t_game game, char key, int x, int y);
+void		fill_monster_texture(t_game game, int x, int y);
+void		fill_collectible_texture(t_game game, int x, int y);
 void		fill_textures(t_game game, char key);
 
 void		start_game(t_game game);
-void		move_player(t_game *game, int x_off, int y_off, char key);
+void		move_player(t_game *game, char key);
 
-void		display_moves(t_game *game, short moves);
+void		display_moves(t_game *game);
 int			close_game(t_game *game);
+void		process_key_event(t_game *game, int x_off, int y_off, char key);
 int			handle_key_events(int keycode, t_game *game);
+int			update_game(t_game *game);
 
 #endif

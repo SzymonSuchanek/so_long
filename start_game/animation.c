@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   animation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/01 16:07:12 by ssuchane          #+#    #+#             */
-/*   Updated: 2024/07/26 17:01:50 by ssuchane         ###   ########.fr       */
+/*   Created: 2024/07/26 12:44:02 by ssuchane          #+#    #+#             */
+/*   Updated: 2024/07/26 17:34:48 by ssuchane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(int ac, char **av)
+int	update_game(t_game *game)
 {
-	t_game	game;
-	char	*texture;
-
-	if (ac != 2)
-		error(NULL, "Attach just one map.");
-	game.map = parse_map(av[1]);
-	check_map(game.map);
-	start_game(game);
-	free(game.map);
+	game->frame_counter++;
+	if (game->frame_counter >= 70000)
+	{
+		game->state = (game->state + 1) % 4;
+		game->frame_counter = 0;
+		fill_textures(*game, game->last_key);
+		display_moves(game);
+	}
 	return (0);
 }

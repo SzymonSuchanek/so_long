@@ -6,7 +6,7 @@
 #    By: ssuchane <ssuchane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/03 15:54:07 by ssuchane          #+#    #+#              #
-#    Updated: 2024/07/25 12:49:39 by ssuchane         ###   ########.fr        #
+#    Updated: 2024/07/26 17:42:13 by ssuchane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-SRCS =	main.c parse_map.c utils.c start_game/get_position.c start_game/handling.c start_game/init_textures.c \
+SRCS =	main.c parse_map.c utils.c start_game/animation.c start_game/get_position.c start_game/handling.c \
 		start_game/start_game.c check_map/are_uniques_on_map.c check_map/are_uniques_reachable.c \
-		check_map/check_map.c check_map/check_shape.c check_map/is_map_closed.c
+		start_game/fill_textures.c start_game/init_animation.c check_map/check_map.c check_map/check_shape.c check_map/is_map_closed.c
 OBJS = $(SRCS:.c=.o)
 
 LIBRARY_DIRS = library/Libft library/ft_printf library/minilibx
